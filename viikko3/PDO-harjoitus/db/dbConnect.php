@@ -13,5 +13,5 @@ if (isset($host) && isset($dbname) && isset($username) && isset($password)) {
     }
 
 } else {
-    die("Database Connection Error");
+    die("Database Config Error");
 }
