@@ -23,10 +23,5 @@ try {
     file_put_contents(__DIR__ . '/../logs/PDOErrors.txt', 'selectData.php - ' . $error->getMessage(), FILE_APPEND);
 }
 
-?>
-
-}
-
-?>
 
 
