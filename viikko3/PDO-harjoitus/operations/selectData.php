@@ -14,7 +14,7 @@ try {
             <td><?php echo $row['description']; ?></td>
             <td><?php echo date_format(date_create($row['created_at']), 'd.m.Y H:i'); ?></td>
             <td><?php echo $row['username']; ?></td>
-            <td><img src="<?php echo $row['filename']; ?>" alt="<?php echo $row['title']; ?>"></td>
+            <td><img src="./uploads/<?php echo $row['filename']; ?>" alt="<?php echo $row['title']; ?>"></td>
         </tr>
     <?php
     endwhile;
