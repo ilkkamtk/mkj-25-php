@@ -5,6 +5,11 @@ global $SITE_URL;
 require_once __DIR__ . "/../config/config.php";
 require_once __DIR__ . '/../db/dbConnect.php';
 
+if (!isset($_SESSION['user'])) {
+    header('Location: '. $SITE_URL . '/user.php');
+    exit;
+}
+
 if (!empty($_GET['media_id'])) {
     // tiedoston deletointi
     $fileSql = "SELECT * FROM MediaItems WHERE media_id = :media_id";
@@ -13,6 +18,7 @@ if (!empty($_GET['media_id'])) {
     $data = [
         'media_id' => $_GET['media_id'],
     ];
+
     if ($_SESSION['user']['user_level_id'] != 1) {
         $fileSql .= " AND user_id = :user_id";
         $deleteSql .= " AND user_id = :user_id";

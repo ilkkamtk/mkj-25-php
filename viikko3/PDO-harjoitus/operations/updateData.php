@@ -5,20 +5,29 @@ global $SITE_URL;
 require_once __DIR__ . "/../config/config.php";
 require_once __DIR__ . '/../db/dbConnect.php';
 
+if (!isset($_SESSION['user'])) {
+    header('Location: '. $SITE_URL . '/user.php');
+    exit;
+}
+
 if (!empty($_POST['media_id'])) {
     $title = $_POST['title'];
     $description = $_POST['description'];
     $media_id = $_POST['media_id'];
 
     $sql = "UPDATE MediaItems SET title = :title, description = :description 
-            WHERE media_id = :media_id AND user_id = :user_id";
+            WHERE media_id = :media_id";
 
     $data = [
         'title' => $title,
         'description' => $description,
-        'user_id' => $_SESSION['user']['user_id'],
         'media_id' => $media_id
     ];
+
+    if ($_SESSION['user']['user_level_id'] != 1) {
+        $sql .= " AND user_id = :user_id";
+        $data["user_id"] = $_SESSION['user']['user_id'];
+    }
 
     try {
         $STH = $DBH->prepare($sql);

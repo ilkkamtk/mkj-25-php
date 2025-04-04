@@ -5,6 +5,11 @@ global $SITE_URL;
 require_once __DIR__ . "/../config/config.php";
 require_once __DIR__ . '/../db/dbConnect.php';
 
+if (!isset($_SESSION['user'])) {
+    header('Location: '. $SITE_URL . '/user.php');
+    exit;
+}
+
 if (!empty($_POST['title']) && $_FILES['file']['error'] === UPLOAD_ERR_OK) {
     $filename = $_FILES['file']['name'];
     $filesize = $_FILES['file']['size'];
