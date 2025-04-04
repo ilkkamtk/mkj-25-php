@@ -1,13 +1,13 @@
 <?php
+session_start();
 global $DBH;
 global $SITE_URL;
 require_once __DIR__ . "/../config/config.php";
 require_once __DIR__ . '/../db/dbConnect.php';
 
-if (!empty($_POST['media_id']) && !empty($_POST['user_id'])) {
+if (!empty($_POST['media_id'])) {
     $title = $_POST['title'];
     $description = $_POST['description'];
-    $user_id = $_POST['user_id'];
     $media_id = $_POST['media_id'];
 
     $sql = "UPDATE MediaItems SET title = :title, description = :description 
@@ -16,7 +16,7 @@ if (!empty($_POST['media_id']) && !empty($_POST['user_id'])) {
     $data = [
         'title' => $title,
         'description' => $description,
-        'user_id' => $user_id,
+        'user_id' => $_SESSION['user']['user_id'],
         'media_id' => $media_id
     ];
 
