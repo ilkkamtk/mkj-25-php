@@ -28,6 +28,7 @@ if (!empty($_GET['media_id'])) {
         $STH->execute($data);
         if ($STH->rowCount() > 0) {
             header('Location: ' . $SITE_URL);
+            exit;
         }
     } catch (PDOException $error) {
         echo "Could not delete media item.";

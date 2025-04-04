@@ -26,6 +26,7 @@ if (!empty($_POST['media_id']) && !empty($_POST['user_id'])) {
         // get update result
         if ($STH->rowCount() > 0) {
             header('Location: ' . $SITE_URL);
+            exit;
         }
 
 

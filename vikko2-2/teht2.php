@@ -8,6 +8,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'):
         setcookie('username', '', time() - 3600);
     endif;
     header('Location: ' . $_SERVER['PHP_SELF']);
+    exit;
 endif;
 ?>
 

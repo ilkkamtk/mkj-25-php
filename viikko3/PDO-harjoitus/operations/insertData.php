@@ -42,6 +42,7 @@ if (!empty($_POST['title']) && !empty($_POST['user_id']) && $_FILES['file']['err
         $STH->execute($data);
         if ($STH->rowCount() > 0) {
             header('Location: ' . $SITE_URL);
+            exit;
         }
     } catch (PDOException $error) {
         echo "Could not insert data to the database.";

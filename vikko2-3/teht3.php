@@ -9,6 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'):
         unset($_SESSION['username']);
     endif;
     header('Location: ' . $_SERVER['PHP_SELF']);
+    exit;
 endif;
 ?>
 

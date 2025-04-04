@@ -18,6 +18,7 @@ if (!empty($_POST['username']) && !empty($_POST['password']) && !empty($_POST['e
         $STH->execute($data);
         if ($STH->rowCount() > 0) {
             header('Location: ' . $SITE_URL . '/user.php?message=User created successfully');
+            exit;
         }
     } catch (PDOException $error) {
         echo "Could not insert user to the database.";
