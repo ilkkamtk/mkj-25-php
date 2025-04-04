@@ -2,7 +2,7 @@
 global $DBH;
 require_once __DIR__ . '/../db/dbConnect.php';
 
-if (!empty($_POST['title']) && $_FILES['file']['error'] === UPLOAD_ERR_OK) {
+if (!empty($_POST['title']) && !empty($_POST['user_id']) && $_FILES['file']['error'] === UPLOAD_ERR_OK) {
     $filename = $_FILES['file']['name'];
     $filesize = $_FILES['file']['size'];
     $filetype = $_FILES['file']['type'];
@@ -11,6 +11,7 @@ if (!empty($_POST['title']) && $_FILES['file']['error'] === UPLOAD_ERR_OK) {
 
     $title = $_POST['title'];
     $description = $_POST['description'];
+    $user_id = $_POST['user_id'];
 
     // vain kuvia ja videoita
     $allowed_types = array('image/jpeg', 'image/png', 'image/gif',
@@ -27,7 +28,7 @@ if (!empty($_POST['title']) && $_FILES['file']['error'] === UPLOAD_ERR_OK) {
 
     $sql = "INSERT INTO MediaItems (user_id, filename, filesize, media_type, title, description) VALUES (:user_id, :filename, :filesize, :media_type, :title, :description)";
     $data = [
-        'user_id' => 1,
+        'user_id' => $user_id,
         'filename' => $filename,
         'filesize' => $filesize,
         'media_type' => $filetype,
