@@ -7,6 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <!--suppress HtmlUnknownTarget -->
     <link href="./css/style.css" rel="stylesheet">
+    <!--suppress HtmlUnknownTarget -->
+    <script src="./js/main.js" defer></script>
     <title>Media Items</title>
 </head>
 <body>
