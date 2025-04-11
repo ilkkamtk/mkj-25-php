@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        const url = 'http://localhost/mkj-25-php/viikko4/OOP-harjoitus/operations/login.php';
+
+        const testData = [
+            'password',
+            '123456',
+            'password123',
+            'admin',
+            'qwerty',
+            'password1234',
+            '12345',
+            'password12345',
+        ];
+
+        const userNames = [
+            'admin',
+            'root',
+            'pekkatki',
+            'ilkkamtk',
+            'mehna',
+            'jorma',
+        ];
+
+        const login = async (username, password) => {
+            try {
+                const response = await fetch(url, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                    },
+                    body: `username=${username}&password=${password}`,
+                });
+                const result = await response.text();
+                console.log(password, result);
+            } catch (error) {
+                console.error(error);
+            }
+        };
+
+        userNames.forEach(username => {
+            testData.forEach(password => login(username, password))
+        });
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
