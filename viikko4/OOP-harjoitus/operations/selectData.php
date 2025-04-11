@@ -12,7 +12,7 @@ use MediaProject\MediaItemDBOps;
 
 
 if ( ! isset( $_SESSION['user'] ) ) {
-	header( 'Location: ' . $SITE_URL . '/user.php' );
+	header( 'Location: ' . $SITE_URL . '/user.php?message=Not logged in' );
 	exit;
 }
 
