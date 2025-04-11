@@ -21,7 +21,7 @@ $mediaItemDBOps = new MediaItemDBOps( $DBH );
 $mediaItems     = $mediaItemDBOps->getMediaItems();
 
 foreach ( $mediaItems as $mediaItem ):
-    $row = $mediaItem->getMediaItem();
+	$row = $mediaItem->getMediaItem();
 	?>
     <tr>
         <td><?php echo $row['title']; ?></td>
