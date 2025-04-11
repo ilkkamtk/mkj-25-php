@@ -27,6 +27,10 @@ require_once __DIR__ . "/../config/config.php";
                     <!--suppress HtmlUnknownTarget -->
                     <a href="<?php echo $SITE_URL ?>/user.php">Login/Register</a>
                 </li>
+                <li>
+                    <!--suppress HtmlUnknownTarget -->
+                    <a href="<?php echo $SITE_URL ?>/operations/logout.php">Logout</a>
+                </li>
             </ul>
         </nav>
     </header>
