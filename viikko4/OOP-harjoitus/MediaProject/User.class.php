@@ -7,7 +7,7 @@ class User {
 	private string $username;
 	private string $password;
 	private string $email;
-	private string $user_level_id;
+	private int $user_level_id;
 	private string $created_at;
 
 	public function __construct( array $data ) {

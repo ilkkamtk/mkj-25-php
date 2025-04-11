@@ -1,4 +1,5 @@
 <?php
+
 namespace MediaProject;
 
 require_once __DIR__ . '/User.class.php';
