@@ -10,10 +10,12 @@ require_once __DIR__ . '/../MediaProject/MediaItemDBOps.class.php';
 
 use MediaProject\MediaItemDBOps;
 
+/*
 if ( ! isset( $_SESSION['user'] ) ) {
 	header( 'Location: ' . $SITE_URL . '/user.php' );
 	exit;
 }
+*/
 
 $mediaItemDBOps = new MediaItemDBOps( $DBH );
 $mediaItems     = $mediaItemDBOps->getMediaItems();
