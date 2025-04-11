@@ -20,14 +20,14 @@ if (!empty($_POST['title']) && $_FILES['file']['error'] === UPLOAD_ERR_OK) {
     $title = $_POST['title'];
     $description = $_POST['description'];
     $user_id = $_SESSION['user']['user_id'];
-
+/*
     // vain kuvia ja videoita
     $allowed_types = array('image/jpeg', 'image/png', 'image/gif',
         'image/webp', 'video/mp4', 'video/webm', 'video/ogg', 'video/mov');
     if (!in_array($filetype, $allowed_types)) {
         exit('Invalid file type.');
     }
-
+*/
     if (move_uploaded_file($tmp_name, $destination)) {
         echo "File uploaded successfully";
     } else {
